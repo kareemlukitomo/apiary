@@ -1,9 +1,22 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://lukitomo.com/
 
 # Kareem 
 
 Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Questions Collection [/api/v2/config/error-messages]
+
+### Error Messages [GET]
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "4001": "Mohon periksa kembali koneksi internet anda.",
+                "Something went wrong during native playback": "Terjadi kesalahan saat memuat video. Silakan coba beberapa saat lagi."
+            }
+        }
 
 ## Questions Collection [/questions]
 
