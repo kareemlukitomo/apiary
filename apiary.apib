@@ -5,7 +5,15 @@ HOST: http://lukitomo.com/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Error Messages [/api/v2/config/error-messages]
+## ACCOUNTS - BCA Integration [/api/v2/accounts/register-bca-user]
+
+### Register BCA User [POST]
+
++ Response 200 (application/json)
+
+        {"data":"OK"}
+
+## CONFIG - Error Messages [/api/v2/config/error-messages]
 
 ### Get List of Error Messages [GET]
 
@@ -32,78 +40,18 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             }
         }
 
-## Questions Collection [/questions]
+## SESSIONS - Heartbeat session check [/api/v2/sessions/heartbeat]
 
-### List All Questions [GET]
+### Heartbeat session check [POST]
++ Request
+    + Headers
+
+        Authentication: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjI2MTQxZDQ1ZTYyMjQzNTczMWU1YWJkYTZlOWZiNGRmIn0.eyJhenAiOiJ3SUhHekpoc2V0Iiwic2NvcGUiOiJodHRwczovL2ludGVybmFsLnN1cGVyc29jY2VyLnR2L3VzZXJzL3VzZXJzLnByb2ZpbGUucmVhZCBodHRwczovL2ludGVybmFsLnN1cGVyc29jY2VyLnR2L3N1YnNjcmlwdGlvbnMvdXNlcnMucmVhZC5nbG9iYWwgaHR0cHM6Ly9hcGkuc3VwZXJzb2NjZXIudHYvc3Vic2NyaXB0aW9ucy9zdWJzY3JpcHRpb25zLnJlYWQgaHR0cHM6Ly9hcGkuc3VwZXJzb2NjZXIudHYvb3JkZXJzL29yZGVycy5jcmVhdGUgaHR0cHM6Ly9hcGkuc3VwZXJzb2NjZXIudHYvdmlkZW9zL3ZpZGVvcy5yZWFkIGh0dHBzOi8vYXBpLnN1cGVyc29jY2VyLnR2L29yZGVycy9vcmRlcnMucmVhZCBwYXltZW50bWV0aG9kczpyZWFkLmludGVybmFsIHBheW1lbnRzOnBheW1lbnQuZG9wYXkgdXNlcmRhdGE6cHJlZmVyZW5jZS5yZWFkIHVzZXJkYXRhOnByZWZlcmVuY2UuaW5zZXJ0IiwicnFsIjoiaW5maW5pdGUiLCJpYXQiOjE1NjkyMTEyNDksImV4cCI6MTU2OTQ3MDQ0OSwiYXVkIjoiYXBpLm1vbGEudHYiLCJpc3MiOiJhY2NvdW50cy5tb2xhLnR2Iiwic3ViIjoiTWRIZUM3eTQwZ0FBVUJoamlRMHlwbmFYWE9aZDRaIiwianRpIjoiSjhNY2w4T3lhUDNzUjJRdktiNzB0RGlxQ1RBNnJTbWhEaE9iU3RyOCJ9.NhhWw05FytUIgCB3M3MCldY-WJ9jV4DMku3Dc74jmnNAHSjev5pavEngLICeZAdvfko1gFk8MYpub3MRkXXwwkZOlKOZoyx8RkggYMQGNSWAO__7YZoUH8zxdCdmtsGVuaohuneAnn8_pYv-wTQJaaiAAPgAwQTSaPVEwCPzLAa9nnvR1U8Sww_y-Xt-8J_iSKN9vf5LsyuSqUK8L_AXSDwwzNRil2jRN3ZnkCVcj8YwWma5xYq3wCg35gwOWG2nv_uWppw7u4Vaf-c1Mp0E_SOZyN6vqGrF0jmjGmXAi1ERhOZAYcmB07Ce5i_GbtZRMCxpUQ-lyjfRR2-_98Tykg
+        x-device-id: hgurehwclvrkejoigjeopjcmreinwhmvslkd
+        x-forwarded-for: 127.0.0.9
 
 + Response 200 (application/json)
 
-        { 
-            "data": [
-                {
-                    "id": 1,
-                    "type": "config",
-                    "attributes": [
-                        {
-                            "choice": "Swift",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "votes": 256
-                        }
-                    ]
-                }
-            ]
-        }
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "data":[{"type":"session","id":"MdHeC7y40gAAUBhjiQ0ypnaXXOZd4Z","attributes":{"status":"ALLOWED","Interval":0}}]
         }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
