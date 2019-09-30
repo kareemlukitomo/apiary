@@ -55,3 +55,128 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         {
             "data":[{"type":"session","id":"MdHeC7y40gAAUBhjiQ0ypnaXXOZd4Z","attributes":{"status":"ALLOWED","Interval":0}}]
         }
+
+## ACCOUNTS - Get client app by id [/api/v2/accounts/client-app/:id]
+
+### Get List of Error Messages [GET]
++ Request
+    parameter id: 74
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "type": "client-app",
+                    "id": 74,
+                    "attributes": {
+                        "ID": 74,
+                        "AppName": "mola app new",
+                        "ClientID": 15,
+                        "AppKey": "ULE05LjUNQ",
+                        "AppSecret": "1kiv23SdYZncmVtH3FrzHcMjq2093pZnY2Wz4tJAaKDK6JkkEUI0q84G7ypXRpZZ",
+                        "RedirectUrls": null,
+                        "Roles": "openid",
+                        "RequestLimit": "infinity",
+                        "Status": 1,
+                        "CreatedAt": "2019-09-13T14:52:27Z",
+                        "UpdatedAt": "2019-09-13T14:52:27Z",
+                        "DeletedAt": null,
+                        "Origins": null,
+                        "AppID": 2
+                    }
+                }
+            ]
+        }
+
+## ACCOUNTS - Insert client app [/api/v2/accounts/client-app]
+
+### Get List of Error Messages [POST]
++ Request
+    + data
+        {
+            "AppName": "mola app new",
+            "ClientID": 15,
+            "AppKey": "adsa",
+            "AppSecret": "1kiv23SdYZncmVtH3FrzHcMjq2093pZnY2Wz4tJAaKDK6JkkEUI0q84G7ypXRpZZ",
+            "RedirectUrls": null,
+            "Roles": "openid",
+            "Origins": null,
+            "AppID": 2
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "type": "client-app",
+                    "id": 77,
+                    "attributes": {
+                        "ID": 77,
+                        "AppName": "mola app new",
+                        "ClientID": 15,
+                        "AppKey": "adsa",
+                        "AppSecret": "1kiv23SdYZncmVtH3FrzHcMjq2093pZnY2Wz4tJAaKDK6JkkEUI0q84G7ypXRpZZ",
+                        "RedirectUrls": null,
+                        "Roles": "openid",
+                        "RequestLimit": null,
+                        "Status": 1,
+                        "CreatedAt": "2019-09-25T14:00:59.129033+07:00",
+                        "UpdatedAt": "2019-09-25T14:00:59.129033+07:00",
+                        "DeletedAt": null,
+                        "Origins": null,
+                        "AppID": 2
+                    }
+                }
+            ]
+        }
+
+## ACCOUNTS - Update client app [/api/v2/accounts/client-app]
+
+### Get List of Error Messages [PUT]
++ Request
+    update AppID: 5
+           AppKey: "qwertyuhgbxdfgbnmnhgfdcvbn"
+    + data
+        {
+            "AppName": "mola app new",
+            "ClientID": 15,
+            "AppKey": "qwertyuhgbxdfgbnmnhgfdcvbn",
+            "AppSecret": "1kiv23SdYZncmVtH3FrzHcMjq2093pZnY2Wz4tJAaKDK6JkkEUI0q84G7ypXRpZZ",
+            "RedirectUrls": null,
+            "Roles": "openid",
+            "Origins": null,
+            "AppID": 5,
+            "ID" : 77
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data": "OK"
+        }
+
+## ACCOUNTS - Delete client app by id [/api/v2/accounts/client-app/:id]
+
+### Get List of Error Messages [DELETE]
++ Request
+    parameter id: 74
+
++ Response 200 (application/json)
+
+        {
+            "data": "OK"
+        }
+
+## ACCOUNTS - Get Profile by tokenize [/api/v2/accounts/client-app/:id]
+
+### Get List of Error Messages [GET]
++ Request
+    parameter id: 74
+
++ Response 200 (application/json)
+
+        {
+            "data": "OK"
+        }
